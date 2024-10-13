@@ -1,18 +1,38 @@
-import React from 'react';
+import WelcomePage from '../src/WelcomePage.js'
+import LoginPage from '../src/LoginPage.js'
+import { CookiesProvider, useCookies } from 'react-cookie'
+import Link from 'next/link';
 
-export default function Home() {
+function App() {
+  const [cookies, setCookie] = useCookies(['user'])
+
+  function handleLogin(user) {
+    setCookie('user', user, { path: '/' })
+  }
+
+  function handleLogout() {
+    setCookie('user', '', { path: '/' })
+  }
+
   return (
-    <div>
-      Home
-      <br />
-      <ol>
+    <div className="App">
+      <header className="App-header">
+    <CookiesProvider>
+      <div>
+        {cookies.user ? <WelcomePage user={cookies.user} handleLogout={handleLogout} /> : <LoginPage onLogin={handleLogin} />}
+      </div>
+    </CookiesProvider>
+    <ol>
         <li>
-          <a href="/jwt-home">JWT Home</a>
+          <Link href={'/jwt-home'} className="no-link-style">JWT Home</Link>
         </li>
         <li>
-          <a href="/jwt-safehouse">JWT Safe house</a>
+          <Link href={'/jwt-safehouse'} className="no-link-style">JWT Safe house</Link>
         </li>
       </ol>
+    </header>
     </div>
   );
 }
+
+export default App;

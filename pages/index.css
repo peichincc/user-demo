@@ -50,3 +50,9 @@ code {
     transform: rotate(360deg);
   }
 }
+
+/* styles.css */
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+}
