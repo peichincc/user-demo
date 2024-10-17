@@ -5,7 +5,7 @@ export default function handler(req, res) {
   const { username, password } = req.body
   // confirm if password is valid
   if (password !== 'catawiki') {
-    return res.status(401).json({ message: 'Invalid password' })
+    return res.status(401).json({ message: 'Invalid password. Please tell me where you are working 😎' })
   }
   let data = {
     signInTime: Date.now(),

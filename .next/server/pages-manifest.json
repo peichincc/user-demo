@@ -2,9 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/jwt-safehouse": "pages/jwt-safehouse.js",
   "/": "pages/index.js",
   "/api/safehouse": "pages/api/safehouse.js",
+  "/jwt-safehouse": "pages/jwt-safehouse.js",
   "/api/auth": "pages/api/auth.js",
   "/jwt-home": "pages/jwt-home.js"
 }
